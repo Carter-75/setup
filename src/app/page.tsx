@@ -154,6 +154,7 @@ export default function Home() {
   const [targetId, setTargetId] = useState<string>(playerKey(1));
   const [feedback, setFeedback] = useState<string | null>(null);
   const [history, setHistory] = useState<TransferRecord[]>([]);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   const nameResetTimers = useRef<
     Partial<Record<number, ReturnType<typeof setTimeout>>>
@@ -231,11 +232,13 @@ export default function Home() {
       setHistory(nextHistory);
     } catch (error) {
       console.warn("Failed to load Monopoly banker state", error);
+    } finally {
+      setHasLoaded(true);
     }
   }, []);
 
   useEffect(() => {
-    if (typeof window === "undefined") {
+    if (!hasLoaded || typeof window === "undefined") {
       return;
     }
     try {
@@ -244,7 +247,7 @@ export default function Home() {
     } catch (error) {
       console.warn("Failed to persist Monopoly banker state", error);
     }
-  }, [players, taxBalance, history]);
+  }, [players, taxBalance, history, hasLoaded]);
 
   useEffect(() => {
     return () => {
