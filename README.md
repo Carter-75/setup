@@ -1,4 +1,4 @@
-# Next.js Project Setup
+# __PROJECT_NAME__
 
 This is a template repository for a Next.js project.
 

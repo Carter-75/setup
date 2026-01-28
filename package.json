@@ -1,5 +1,5 @@
 {
-  "name": "monopoly",
+  "name": "next-template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Template repository for Next.js projects",
   "dependencies": {
     "react": "18",
     "react-dom": "18",

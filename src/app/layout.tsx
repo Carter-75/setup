@@ -1,10 +1,12 @@
 import "./globals.css";
+import "bulma/css/bulma.min.css";
 
+import Script from "next/script";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "monopoly",
-  description: "A project named monopoly",
+  title: "Template App",
+  description: "A project template",
 };
 
 export default function RootLayout({
@@ -15,14 +17,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/*
-          The following script tags are for Matter.js and Anime.js.
-          You can uncomment them and start using them in your project.
-          These are powerful animation libraries.
-          Feel free to remove them if you don't need them.
-        */}
-        {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script> */}
-        {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> */}
+        <Script
+          src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"
+          strategy="afterInteractive"
+        />
+        <Script
+          src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+          strategy="afterInteractive"
+        />
       </head>
       <body>
         {children}
